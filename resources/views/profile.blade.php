@@ -1,17 +1,5 @@
 @extends('layout.app')
 @section('content')
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Profesional | Nama Anda</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
     <div class="profile-container">
         <aside class="profile-sidebar">
             <div class="sidebar-header">
@@ -42,7 +30,7 @@
                         <li>Database (MySQL)</li>
                     </ul>
                 </div>
-                
+
                 <div class="language-info">
                     <h3 class="section-title">Bahasa</h3>
                     <ul>
@@ -93,6 +81,4 @@
         </main>
     </div>
 
-</body>
-</html>
 @endsection
