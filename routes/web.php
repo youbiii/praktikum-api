@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\ProdiController;
-=======
->>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');;
-
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+// Fakultas Routes
 Route::get('/fakultas', [FakultasController::class, 'index'])->name('fakultas.index');
 Route::get('/fakultas/create', [FakultasController::class, 'create'])->name('fakultas.create');
+Route::post('/fakultas', [FakultasController::class, 'store'])->name('fakultas.store');
+
+
+// Prodi Routes
 Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index');
-=======
-Route::get('/', [DashboardController::class, 'index']);
->>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
 
 
 

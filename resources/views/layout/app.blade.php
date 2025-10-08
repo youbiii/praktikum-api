@@ -10,10 +10,8 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
-<<<<<<< HEAD
+
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-=======
->>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -48,7 +46,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                   @yield('content')
-                    
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -107,11 +105,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
 </body>
 
 </html>
