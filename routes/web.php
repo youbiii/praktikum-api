@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');;
+
+Route::get('/fakultas', [FakultasController::class, 'index'])->name('fakultas.index');
+Route::get('/fakultas/create', [FakultasController::class, 'create'])->name('fakultas.create');
+Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index');
+
+
+
+
+
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+Route::get('/data', function () {
+    return view('data');
 });
