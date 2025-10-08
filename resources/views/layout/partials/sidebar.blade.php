@@ -13,7 +13,11 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
+<<<<<<< HEAD
                 <a class="nav-link" href="{{route('dashboard.index')}}">
+=======
+                <a class="nav-link" href="index.html">
+>>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -27,6 +31,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+<<<<<<< HEAD
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
@@ -39,6 +44,19 @@
                         <h6 class="collapse-header">Data</h6>
                         <a class="collapse-item" href="{{ route('fakultas.index') }}">Fakultas</a>
                         <a class="collapse-item active" href="{{route('prodi.index')}}">Prodi</a>
+=======
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+>>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
                     </div>
                 </div>
             </li>

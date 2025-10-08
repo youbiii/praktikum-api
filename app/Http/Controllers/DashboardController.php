@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+<<<<<<< HEAD
 
     public function index()
     {
@@ -16,6 +17,16 @@ class DashboardController extends Controller
 
         return view('dashboard.index', compact('fakultas'));
     }
+=======
+   
+   public function index(){
+
+    $fakultas = Fakultas::all();
+
+    
+    return view('welcome', compact('fakultas'));
+   }
+>>>>>>> 2d4ddbc95a926ccc27f10945dc80b19de5f6d7a6
 
 
 
