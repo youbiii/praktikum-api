@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prodis', function (Blueprint $table) {
+        // Pastikan nama tabel sama dengan yang digunakan di Model ('prodi')
+        Schema::create('prodi', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_prodi');
-            $table->string('nama_prodi');
+            $table->string('nama_prodi', 255);
+            $table->string('kode_prodi', 10)->unique();
+
+            // Contoh Foreign Key ke tabel 'fakultas'
+            // Pastikan tabel 'fakultas' dibuat sebelum tabel 'prodi'
+            $table->foreignId('fakultas_id')->constrained('fakultas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prodis');
+        Schema::dropIfExists('prodi');
     }
 };

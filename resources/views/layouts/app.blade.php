@@ -30,7 +30,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('layout.partials.sidebar')
+        @include('layouts.partials.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -40,7 +40,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('layout.partials.topbar')
+                @include('layouts.partials.topbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -55,7 +55,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-           @include('layout.partials.footer')
+           @include('layouts.partials.footer')
             <!-- End of Footer -->
 
         </div>

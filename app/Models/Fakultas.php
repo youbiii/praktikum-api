@@ -23,4 +23,5 @@ class Fakultas extends Model
         return self::all();
     }
     
+
 }

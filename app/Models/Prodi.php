@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Prodi extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $table = 'prodi';
+    protected $fillable = ['nama_prodi', 'kode_prodi', 'fakultas_id'];
+    public $timestamps = true;
+    public static function getAllProdi()
+    {
+        return self::all();
+    }
+
 }

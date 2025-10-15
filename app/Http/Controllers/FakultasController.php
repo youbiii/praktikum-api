@@ -32,4 +32,35 @@ class FakultasController extends Controller
         // Redirect ke halaman daftar fakultas dengan pesan sukses
         return redirect()->route('fakultas.index')->with('success', 'Fakultas berhasil ditambahkan!');
     }
+    public function edit($id)
+    {
+        $fakultas = Fakultas::findOrFail($id);
+        return view('fakultas.edit', compact('fakultas'));
+    }
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama_fakultas' => 'required|string|max:255',
+            'kode_fakultas' => 'required|string|max:10|unique:fakultas,kode_fakultas,' . $id,
+        ]);
+
+        // Update data di database
+        Fakultas::where('id', $id)->update($validatedData);
+
+        // Redirect ke halaman daftar fakultas dengan pesan sukses
+        return redirect()->route('fakultas.index')->with('success', 'Fakultas berhasil diperbarui!');
+    }
+    public function show($id)
+    {
+        $fakultas = Fakultas::findOrFail($id);
+        return view('fakultas.show', compact('fakultas'));
+    }
+    public function destroy($id)
+    {
+        $fakultas = Fakultas::findOrFail($id);
+        $fakultas->delete();
+
+        return redirect()->route('fakultas.index')->with('success', 'Fakultas berhasil dihapus!');
+    }
 }

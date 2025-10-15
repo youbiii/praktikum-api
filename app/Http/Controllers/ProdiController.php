@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Prodi;
+use App\Models\Fakultas;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +13,8 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        return view('prodi.index');
+        $dataProdi = Prodi::getAllProdi();
+        return view('prodi.index', compact('dataProdi'));
     }
 
     /**
@@ -19,7 +22,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        return view('prodi.create');
     }
 
     /**
@@ -27,7 +30,18 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama_prodi' => 'required|string|max:255',
+            'kode_prodi' => 'required|string|max:10|unique:prodi,kode_prodi',
+            'fakultas_id' => 'required|exists:fakultas,id',
+        ]);
+
+        // Simpan data ke database
+        Prodi::create($validatedData);
+
+        // Redirect ke halaman daftar prodi dengan pesan sukses
+        return redirect()->route('prodi.index')->with('success', 'Prodi berhasil ditambahkan!');
     }
 
     /**
@@ -35,7 +49,8 @@ class ProdiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $prodi = Prodi::findOrFail($id);
+        return view('prodi.show', compact('prodi'));
     }
 
     /**
@@ -43,7 +58,8 @@ class ProdiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $prodi = Prodi::findOrFail($id);
+        return view('prodi.edit', compact('prodi'));
     }
 
     /**
@@ -51,7 +67,18 @@ class ProdiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama_prodi' => 'required|string|max:255',
+            'kode_prodi' => 'required|string|max:10|unique:prodi,kode_prodi,' . $id,
+            'fakultas_id' => 'required|exists:fakultas,id',
+        ]);
+
+        // Update data di database
+        Prodi::where('id', $id)->update($validatedData);
+
+        // Redirect ke halaman daftar prodi dengan pesan sukses
+        return redirect()->route('prodi.index')->with('success', 'Prodi berhasil diperbarui!');
     }
 
     /**
@@ -59,6 +86,9 @@ class ProdiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $prodi = Prodi::findOrFail($id);
+        $prodi->delete();
+
+        return redirect()->route('prodi.index')->with('success', 'Prodi berhasil dihapus!');
     }
 }

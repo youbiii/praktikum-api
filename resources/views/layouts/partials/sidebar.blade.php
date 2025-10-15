@@ -41,7 +41,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data</h6>
                         <a class="collapse-item" href="{{ route('fakultas.index') }}">Fakultas</a>
-                        <a class="collapse-item active" href="{{route('prodi.index')}}">Prodi</a>
+                        <a class="collapse-item" href="{{route('prodi.index')}}">Prodi</a>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
