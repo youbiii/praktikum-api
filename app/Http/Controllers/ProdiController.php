@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Prodi;
 use App\Models\Fakultas;
 
@@ -22,7 +23,8 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        return view('prodi.create');
+        $fakultas = Fakultas::all();
+        return view('prodi.create', compact('fakultas'));
     }
 
     /**
@@ -34,7 +36,7 @@ class ProdiController extends Controller
         $validatedData = $request->validate([
             'nama_prodi' => 'required|string|max:255',
             'kode_prodi' => 'required|string|max:10|unique:prodi,kode_prodi',
-            'fakultas_id' => 'required|exists:fakultas,id',
+            'fakultas_id' => 'required',
         ]);
 
         // Simpan data ke database
@@ -59,7 +61,8 @@ class ProdiController extends Controller
     public function edit(string $id)
     {
         $prodi = Prodi::findOrFail($id);
-        return view('prodi.edit', compact('prodi'));
+        $fakultas = Fakultas::all(); // <-- TAMBAHKAN INI
+        return view('prodi.edit', compact('prodi', 'fakultas'));
     }
 
     /**
@@ -71,7 +74,7 @@ class ProdiController extends Controller
         $validatedData = $request->validate([
             'nama_prodi' => 'required|string|max:255',
             'kode_prodi' => 'required|string|max:10|unique:prodi,kode_prodi,' . $id,
-            'fakultas_id' => 'required|exists:fakultas,id',
+            'fakultas_id'=> 'required',
         ]);
 
         // Update data di database
